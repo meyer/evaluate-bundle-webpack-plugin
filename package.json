@@ -1,0 +1,12 @@
+{
+  "name": "evaluate-bundle-webpack-plugin",
+  "version": "0.0.2",
+  "description": "Webpack plugin that evaluates the built bundle and provides an emit callback",
+  "main": "EvaluateBundlePlugin.js",
+  "author": "@meyer",
+  "license": "MIT",
+  "dependencies": {
+    "invariant": "^2.2.2"
+  },
+  "repository": "https://github.com/meyer/evaluate-bundle-webpack-plugin.git"
+}
