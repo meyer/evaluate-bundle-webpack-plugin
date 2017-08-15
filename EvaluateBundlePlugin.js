@@ -11,7 +11,7 @@ EvaluateBundlePlugin.prototype.apply = function(compiler) {
     return;
   }
 
-  compiler.plugin('emit', function(compilation, compileCallback) {
+  compiler.plugin('emit', (compilation, compileCallback) => {
     let entryBundleName;
 
     // TODO: make sure this works with bundle splitting (it probably doesn't)
@@ -39,18 +39,6 @@ EvaluateBundlePlugin.prototype.apply = function(compiler) {
       compilation.errors.push('EvaluateBundlePlugin: ' + e.stack);
     }
     const extraChunks = this.renderCallback(bundleExport, statsObj);
-
-    // TODO: consider using module module
-    // const Module = require('module');
-    // const filePath = path.join(compiler.outputPath, entryBundleName);
-    // const bundle = new Module();
-    // bundle.paths = module.paths;
-    // try {
-    //   bundle._compile(source, filePath);
-    // } catch (e) {
-    //   compilation.errors.push('EvaluateBundlePlugin: ' + e.stack);
-    // }
-    // const extraChunks = this.renderCallback(bundle.exports, statsObj);
 
     invariant(
       typeof extraChunks === 'object' && extraChunks !== null,
